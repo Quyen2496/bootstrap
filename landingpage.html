@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Surface - Landing Page Clone</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <!-- 1. NAVBAR HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand me-4" href="#">
+                <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/image/RE1Mu3b?ver=5c31" alt="Microsoft Logo" height="23">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item me-2 fw-semibold text-dark fs-5">| Surface</li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#">Computers</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#">Computers for Business</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#">Deals</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    <a href="#" class="text-dark text-decoration-none small">All Microsoft <i class="bi bi-chevron-down ms-1"></i></a>
+                    <a href="#" class="text-dark"><i class="bi bi-search"></i></a>
+                    <a href="#" class="text-dark"><i class="bi bi-cart"></i></a>
+                    <a href="#" class="text-dark"><i class="bi bi-person-circle fs-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO BANNER -->
+    <section class="bg-light position-relative overflow-hidden">
+        <div class="container-fluid px-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
+                <div class="col-lg-5 p-5 z-1">
+                    <span class="badge bg-warning text-dark mb-2 px-3 py-2 rounded-0 fw-bold">NEW</span>
+                    <h1 class="display-4 fw-bold mb-3">Meet Surface Pro 9</h1>
+                    <p class="lead mb-4">The power of a laptop, the flexibility of a tablet. Designed for versatility and performance with 12th Gen Intel Core processors.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-primary btn-lg rounded-1 px-4">Shop Surface Pro 9</a>
+                        <a href="#" class="btn btn-link text-decoration-none text-dark fw-bold align-self-center">Learn more <i class="bi bi-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/image/RE53M8m?ver=1d2a" class="img-fluid w-100 object-fit-cover" alt="Surface Pro 9 Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. QUICK LINKS / CATEGORIES -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4 text-center justify-content-center">
+                <div class="col-6 col-md-3">
+                    <a href="#" class="text-decoration-none text-dark d-block p-3">
+                        <i class="bi bi-laptop display-5 text-primary mb-2 d-block"></i>
+                        <span class="fw-bold">Laptops</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="text-decoration-none text-dark d-block p-3">
+                        <i class="bi bi-tablet-landscape display-5 text-primary mb-2 d-block"></i>
+                        <span class="fw-bold">2-in-1 PCs</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="text-decoration-none text-dark d-block p-3">
+                        <i class="bi bi-headset display-5 text-primary mb-2 d-block"></i>
+                        <span class="fw-bold">Accessories</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="text-decoration-none text-dark d-block p-3">
+                        <i class="bi bi-building display-5 text-primary mb-2 d-block"></i>
+                        <span class="fw-bold">For Business</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED PRODUCTS (GRID CARDS) -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Explore Surface devices</h2>
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <!-- Card 1 -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm rounded-0">
+                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/image/RE4P58e?ver=c619" class="card-img-top p-3" alt="Surface Laptop 5">
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-secondary mb-2 align-self-start">NEW</span>
+                            <h5 class="card-title fw-bold">Surface Laptop 5</h5>
+                            <p class="card-text text-muted flex-grow-1">Sleek and super-fast. Multi-tasking speed powered by 12th Gen Intel Core processors built on the Intel Evo platform.</p>
+                            <a href="#" class="btn btn-primary rounded-1 mt-3">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm rounded-0">
+                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/image/RE4P92V?ver=be8b" class="card-img-top p-3" alt="Surface Laptop Studio">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Surface Laptop Studio</h5>
+                            <p class="card-text text-muted flex-grow-1">Incredibly powerful, infinitely flexible. Set your imagination free on the most powerful Surface Laptop.</p>
+                            <a href="#" class="btn btn-primary rounded-1 mt-3">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm rounded-0">
+                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/image/RE4P74i?ver=00bb" class="card-img-top p-3" alt="Surface Laptop Go 2">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Surface Laptop Go 2</h5>
+                            <p class="card-text text-muted flex-grow-1">Sleek and portable, 12.4" Surface Touchscreen Laptop with great typing experience and improved HD camera.</p>
+                            <a href="#" class="btn btn-primary rounded-1 mt-3">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm rounded-0">
+                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/image/RE4P3K1?ver=2eb9" class="card-img-top p-3" alt="Surface Studio 2+">
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-secondary mb-2 align-self-start">NEW</span>
+                            <h5 class="card-title fw-bold">Surface Studio 2+</h5>
+                            <p class="card-text text-muted flex-grow-1">Elegance meets performance. Elevate your creativity with the iconic 28" PixelSense touchscreen.</p>
+                            <a href="#" class="btn btn-primary rounded-1 mt-3">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-light pt-5 pb-4 border-top text-muted small">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">What's new</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Surface Pro 9</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Surface Laptop 5</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Surface Studio 2+</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">Microsoft Store</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Account profile</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Download Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">Education</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Microsoft in education</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Devices for education</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">Business</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Microsoft Cloud</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Surface Business</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">Developer & IT</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Developer Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold text-dark mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">About Microsoft</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center pt-4 mt-4 border-top">
+                <div class="d-flex align-items-center gap-2 mb-2 mb-md-0">
+                    <i class="bi bi-globe"></i>
+                    <span>English (United States)</span>
+                </div>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item me-3"><a href="#" class="text-muted text-decoration-none">Sitemap</a></li>
+                    <li class="list-inline-item me-3"><a href="#" class="text-muted text-decoration-none">Contact Microsoft</a></li>
+                    <li class="list-inline-item me-3"><a href="#" class="text-muted text-decoration-none">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none">Terms of use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
