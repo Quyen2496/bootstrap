@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phim Hoạt Hình - Xem Phim Online</title>
+    <style>
+        /* =========================================================
+           RESET & BASIC STYLES
+           ========================================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           1. FIXED HEADER (Mức Trung Bình: Cố định khi cuộn trang)
+           ========================================================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo bên trái (Mức cơ bản) */
+        .logo {
+            background-color: #d9381e;
+            color: #fff;
+            font-weight: bold;
+            font-size: 22px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        /* Head-link: Các liên kết trang (Mức Cơ bản & Trung bình) */
+        .head-link nav {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .head-link a {
+            text-decoration: none; /* Bỏ gạch chân (Mức trung bình) */
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            padding: 4px 8px;
+        }
+
+        /* Hover & Active Link: Bôi đậm và đổi màu (Mức trung bình) */
+        .head-link a:hover,
+        .head-link a.active {
+            font-weight: bold;
+            color: #d9381e;
+        }
+
+        .head-link span.separator {
+            color: #ccc;
+        }
+
+        /* =========================================================
+           2. MAIN CONTENT (Mức Cơ bản & Nâng cao)
+           ========================================================= */
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* LEFT CONTENT: Menu danh sách video */
+        .left-content {
+            width: 32%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .video-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .video-card .title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #222;
+            margin-top: 6px;
+        }
+
+        .video-card .sub-title {
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* RIGHT CONTENT: Xem video chính (Mặc định hiển thị video 1) */
+        .right-content {
+            width: 68%;
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .main-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Tỉ lệ 16:9 cho video khung phát */
+            height: 0;
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .main-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info h2 {
+            font-size: 16px;
+            color: #111;
+            margin-bottom: 4px;
+        }
+
+        .video-info .author {
+            font-size: 13px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 12px;
+        }
+
+        .video-info .description {
+            font-size: 13px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .video-info .description p {
+            margin-bottom: 10px;
+        }
+
+        /* =========================================================
+           3. FOOTER (Mức Cơ bản)
+           ========================================================= */
+        footer {
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* =========================================================
+           4. RESPONSIVE DESIGN (Mức Nâng cao - Media Queries)
+           ========================================================= */
+        /* Màn hình Tablet (< 900px) */
+        @media (max-width: 900px) {
+            .main-container {
+                flex-direction: column-reverse; /* Đẩy video chính lên trên, danh sách bên dưới */
+            }
+
+            .left-content, 
+            .right-content {
+                width: 100%;
+            }
+
+            .left-content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* Bố cục 2 cột cho danh sách video */
+                gap: 15px;
+            }
+        }
+
+        /* Màn hình Mobile (< 600px) */
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .head-link nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .left-content {
+                grid-template-columns: 1fr; /* Trở về 1 cột xếp chồng trên điện thoại */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PHẦN HEADER & HEAD-LINK (Cố định khi trượt trang) -->
+    <header>
+        <div class="header-container">
+            <!-- Logo bên trái -->
+            <a href="#" class="logo">PhimHoatHinh</a>
+
+            <!-- Head-link chứa các liên kết -->
+            <div class="head-link">
+                <nav>
+                    <a href="#" class="active">Phim hoạt hình</a>
+                    <span class="separator">|</span>
+                    <a href="#">Phim hoạt hình yêu thích</a>
+                    <span class="separator">|</span>
+                    <a href="#">Nhân vật hoạt hình</a>
+                    <span class="separator">|</span>
+                    <a href="#">Góp ý</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- PHẦN CONTENT (LEFT CONTENT & RIGHT CONTENT) -->
+    <div class="main-container">
+
+        <!-- LEFT CONTENT: Menu danh sách các video có sẵn -->
+        <aside class="left-content">
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/1_M_3xL3x6o/hqdefault.jpg" alt="Video 1">
+                <div class="title">Welcom đến với khách sạn Nobi - 5,147,528 lượt xem</div>
+                <div class="sub-title">Channel Fun</div>
+            </div>
+
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/1_M_3xL3x6o/hqdefault.jpg" alt="Video 2">
+                <div class="title">Suneo khổng lồ - 5,147,528 lượt xem</div>
+                <div class="sub-title">Doreamon Vietsub</div>
+            </div>
+
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/1_M_3xL3x6o/hqdefault.jpg" alt="Video 3">
+                <div class="title">Còi điều khiển vật - 5,147,528 lượt xem</div>
+                <div class="sub-title">Doreamon Vietsub</div>
+            </div>
+
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/1_M_3xL3x6o/hqdefault.jpg" alt="Video 4">
+                <div class="title">Chiếc máy tạo kẹo bông - 5,147,528 lượt xem</div>
+                <div class="sub-title">Doreamon Vietsub</div>
+            </div>
+        </aside>
+
+        <!-- RIGHT CONTENT: Nội dung video được chọn (Mặc định video đầu tiên) -->
+        <main class="right-content">
+            <div class="main-video-wrapper">
+                <!-- Video nhúng từ Youtube (Minh họa) -->
+                <iframe src="https://www.youtube.com/embed/1_M_3xL3x6o" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-info">
+                <h2>Tớ là Mari - 5,147,528 lượt xem</h2>
+                <div class="author">Tác giả</div>
+                <div class="description">
+                    <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại Bàng cứu công chúa, dùng tiếng đàn nhân nghĩa dẹp tan quân xâm lược. Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng. Cuối cùng chính nghĩa đã thắng. Tên Lý Thông gian ác bị đền tội. Mời các bạn cùng đón xem và cảm nhận.</p>
+                    <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại Bàng cứu công chúa, dùng tiếng đàn nhân nghĩa dẹp tan quân xâm lược. Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng. Cuối cùng chính nghĩa đã thắng. Tên Lý Thông gian ác bị đền tội. Mời các bạn cùng đón xem và cảm nhận.</p>
+                    <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại Bàng cứu công chúa, dùng tiếng đàn nhân nghĩa dẹp tan quân xâm lược. Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng. Cuối cùng chính nghĩa đã thắng. Tên Lý Thông gian ác bị đền tội. Mời các bạn cùng đón xem và cảm nhận.</p>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- PHẦN FOOTER (Thông tin bản quyền) -->
+    <footer>
+        &copy; 2017 - Thiết kế web bởi trang hoathinhvn.net
+    </footer>
+
+</body>
+</html>
